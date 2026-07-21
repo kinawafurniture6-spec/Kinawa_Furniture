@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-ivory: #F7F3EC;
+  --color-sandstone: #B89773;
+  --color-rattan: #5A4632;
+  --color-charcoal: #2E2A25;
+  --color-sage: #8A9482;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: 'Work Sans', system-ui, sans-serif;
+  background-color: #F7F3EC;
+  color: #2E2A25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Scrollbar ── */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #B89773 #F7F3EC;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #F7F3EC; }
+::-webkit-scrollbar-thumb { background: #B89773; border-radius: 2px; }
+
+/* ── Category card hover ── */
+.cat-card:hover .cat-overlay { opacity: 1; }
+.cat-card:hover .cat-img { transform: scale(1.06); }
+.cat-card:hover .cat-label { transform: translateY(0); }
+.cat-overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.cat-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cat-label {
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Rattan divider SVG pattern ── */
+.rattan-divider {
+  width: 100%;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24'%3E%3Ccircle cx='10' cy='12' r='6' fill='none' stroke='%23B89773' stroke-width='0.8' stroke-dasharray='2 2'/%3E%3Ccircle cx='30' cy='12' r='6' fill='none' stroke='%23B89773' stroke-width='0.8' stroke-dasharray='2 2'/%3E%3Cline x1='16' y1='12' x2='24' y2='12' stroke='%23B89773' stroke-width='0.6'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.6;
+}
