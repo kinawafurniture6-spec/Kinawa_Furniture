@@ -85,14 +85,16 @@ export default function App() {
     document.title = pageTitle
 
     const faviconUrl = siteData?.contactInfo?.faviconUrl
+    let link = document.querySelector<HTMLLinkElement>('link[rel~="icon"]')
     if (faviconUrl) {
-      let link = document.querySelector<HTMLLinkElement>('link[rel~="icon"]')
       if (!link) {
         link = document.createElement('link')
         link.rel = 'icon'
         document.head.appendChild(link)
       }
       link.href = faviconUrl
+    } else if (link) {
+      link.href = '/favicon.svg'
     }
   }, [page, siteData?.contactInfo?.brandName, siteData?.contactInfo?.brandSub, siteData?.contactInfo?.faviconUrl])
 
